@@ -1,0 +1,13 @@
+{
+  "globalDependencies": {
+    "github-electron": "registry:dt/github-electron#1.2.5+20160624085047",
+    "github-electron/electron-prebuilt": "registry:dt/github-electron/electron-prebuilt#0.30.1+20160316155526",
+    "koa": "registry:dt/koa#2.0.0+20160619030120",
+    "koa-mount": "registry:dt/koa-mount#2.0.0+20160423074336",
+    "koa-static": "registry:dt/koa-static#2.0.0+20160401073454",
+    "node": "registry:dt/node#6.0.0+20160621231320"
+  },
+  "dependencies": {
+    "debug": "registry:npm/debug#2.0.0+20160511151334"
+  }
+}

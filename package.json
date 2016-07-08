@@ -1,0 +1,32 @@
+{
+  "name": "elm-electron",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "elm-make": "elm-make source/Main.elm",
+    "electron": "npm run ts-node -- ./source/scripts/electron.ts",
+    "start": "nodemon --watch source --ext elm --exec \"npm run run\"",
+    "format": "./elm-format --yes source/*.elm",
+    "run": "elm make source/Main.elm --output=index.html && npm run electron",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "tsc": "node ./node_modules/typescript/lib/tsc.js",
+    "ts-node": "node ./node_modules/ts-node/dist/bin.js"
+  },
+  "keywords": [],
+  "author": "Edward Lombe <edward.lombe@mycosystems.com.au> (https://github.com/Edward-Lombe)",
+  "license": "ISC",
+  "dependencies": {
+    "bootstrap": "3.3.6",
+    "debug": "2.2.0",
+    "electron-prebuilt": "1.2.5",
+    "elm": "0.17.1",
+    "koa": "2.0.0",
+    "koa-mount": "2.0.0",
+    "koa-static": "3.0.0",
+    "socket.io": "1.4.8",
+    "ts-node": "0.9.3",
+    "typescript": "1.8.10",
+    "typings": "1.3.1"
+  }
+}
