@@ -1,0 +1,8 @@
+{
+  "resolution": "main",
+  "tree": {
+    "src": "https://raw.githubusercontent.com/DefinitelyTyped/DefinitelyTyped/477643b46bc24e9b76420ac658e87e1ff2b1f197/koa-mount/koa-mount.d.ts",
+    "raw": "registry:dt/koa-mount#2.0.0+20160423074336",
+    "typings": "https://raw.githubusercontent.com/DefinitelyTyped/DefinitelyTyped/477643b46bc24e9b76420ac658e87e1ff2b1f197/koa-mount/koa-mount.d.ts"
+  }
+}
