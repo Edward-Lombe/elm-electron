@@ -1,4 +1,4 @@
 'use strict'
 
 require('ts-node/register')
-require('./source/main')
+require('./source/server/main')

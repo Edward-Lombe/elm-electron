@@ -6,6 +6,7 @@ import * as Koa from 'koa'
 import * as mount from 'koa-mount'
 import * as serve from 'koa-static'
 import * as debug from 'debug'
+import * as http from 'http'
 
 const log = debug('elm-electron:server.ts')
 
@@ -13,11 +14,13 @@ export const app = new Koa()
 
 export function initialize() {
 
+  const httpServer = http.createServer(app.callback())
+
   log('Starting HTTP server')
 
   app.use(mount('/', serveRoot()))
 
-  app.listen(3000)
+  httpServer.listen(3000)
 
   return Promise.resolve()
 
@@ -25,10 +28,10 @@ export function initialize() {
 
 function serveRoot() {
 
-  const root = join(__dirname, '../')
+  const root = join(__dirname, '../../')
 
   return async function (context: Koa.Context, next: () => any) {
-    return serve(root)(context, next)
+    return serve(root, { maxage: 0 })(context, next)
   }
 
 }
