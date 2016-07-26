@@ -12711,8 +12711,8 @@ var _elm_lang$html$Html_App$beginnerProgram = function (_p1) {
 };
 var _elm_lang$html$Html_App$map = _elm_lang$virtual_dom$VirtualDom$map;
 
-var _gdotdesign$elm_ui$Main$container = function (content) {
-	return _circuithub$elm_bootstrap_html$Bootstrap_Html$container_(
+var _gdotdesign$elm_ui$Utilities_Layout$container = function (content) {
+	return _circuithub$elm_bootstrap_html$Bootstrap_Html$containerFluid_(
 		_elm_lang$core$Native_List.fromArray(
 			[
 				_circuithub$elm_bootstrap_html$Bootstrap_Html$row_(
@@ -12722,12 +12722,12 @@ var _gdotdesign$elm_ui$Main$container = function (content) {
 					]))
 			]));
 };
-var _gdotdesign$elm_ui$Main$navbar = A2(
+var _gdotdesign$elm_ui$Utilities_Layout$navbar = A2(
 	_circuithub$elm_bootstrap_html$Bootstrap_Html$navbarDefault$,
 	'',
 	_elm_lang$core$Native_List.fromArray(
 		[
-			_gdotdesign$elm_ui$Main$container(
+			_gdotdesign$elm_ui$Utilities_Layout$container(
 			_elm_lang$core$Native_List.fromArray(
 				[
 					_circuithub$elm_bootstrap_html$Bootstrap_Html$navbarHeader_(
@@ -12741,11 +12741,12 @@ var _gdotdesign$elm_ui$Main$navbar = A2(
 								]),
 							_elm_lang$core$Native_List.fromArray(
 								[
-									_elm_lang$html$Html$text('header')
+									_elm_lang$html$Html$text('Home')
 								]))
 						]))
 				]))
 		]));
+
 var _gdotdesign$elm_ui$Main$br$ = A2(
 	_elm_lang$html$Html$br,
 	_elm_lang$core$Native_List.fromArray(
@@ -12758,17 +12759,68 @@ var _gdotdesign$elm_ui$Main$subscriptions = function (model) {
 var _gdotdesign$elm_ui$Main$update = F2(
 	function (msg, model) {
 		var _p0 = msg;
-		if (_p0.ctor === 'Increment') {
-			return {ctor: '_Tuple2', _0: model + 1, _1: _elm_lang$core$Platform_Cmd$none};
-		} else {
-			return {ctor: '_Tuple2', _0: model - 1, _1: _elm_lang$core$Platform_Cmd$none};
+		switch (_p0.ctor) {
+			case 'Increment':
+				return {
+					ctor: '_Tuple2',
+					_0: _elm_lang$core$Native_Utils.update(
+						model,
+						{counter: model.counter + 1}),
+					_1: _elm_lang$core$Platform_Cmd$none
+				};
+			case 'Decrement':
+				return (_elm_lang$core$Native_Utils.cmp(model.counter, 0) > 0) ? {
+					ctor: '_Tuple2',
+					_0: _elm_lang$core$Native_Utils.update(
+						model,
+						{counter: model.counter - 1}),
+					_1: _elm_lang$core$Platform_Cmd$none
+				} : {ctor: '_Tuple2', _0: model, _1: _elm_lang$core$Platform_Cmd$none};
+			default:
+				return {
+					ctor: '_Tuple2',
+					_0: _elm_lang$core$Native_Utils.update(
+						model,
+						{input: _p0._0}),
+					_1: _elm_lang$core$Platform_Cmd$none
+				};
 		}
 	});
-var _gdotdesign$elm_ui$Main$model = 0;
+var _gdotdesign$elm_ui$Main$Model = F2(
+	function (a, b) {
+		return {counter: a, input: b};
+	});
+var _gdotdesign$elm_ui$Main$model = A2(_gdotdesign$elm_ui$Main$Model, 0, '');
 var _gdotdesign$elm_ui$Main$init = {ctor: '_Tuple2', _0: _gdotdesign$elm_ui$Main$model, _1: _elm_lang$core$Platform_Cmd$none};
+var _gdotdesign$elm_ui$Main$UpdateInput = function (a) {
+	return {ctor: 'UpdateInput', _0: a};
+};
+var _gdotdesign$elm_ui$Main$textInput = function (model) {
+	return _circuithub$elm_bootstrap_html$Bootstrap_Html$row_(
+		_elm_lang$core$Native_List.fromArray(
+			[
+				A2(
+				_circuithub$elm_bootstrap_html$Bootstrap_Html$colXs_,
+				6,
+				_elm_lang$core$Native_List.fromArray(
+					[
+						A2(
+						_elm_lang$html$Html$input,
+						_elm_lang$core$Native_List.fromArray(
+							[
+								_elm_lang$html$Html_Attributes$value(model.input),
+								_elm_lang$html$Html_Attributes$class('form-control'),
+								_elm_lang$html$Html_Events$onInput(_gdotdesign$elm_ui$Main$UpdateInput)
+							]),
+						_elm_lang$core$Native_List.fromArray(
+							[]))
+					]))
+			]));
+};
 var _gdotdesign$elm_ui$Main$Decrement = {ctor: 'Decrement'};
-var _gdotdesign$elm_ui$Main$decrementButton = A2(
-	_circuithub$elm_bootstrap_html$Bootstrap_Html$btnDefault_,
+var _gdotdesign$elm_ui$Main$decrementButton = A3(
+	_circuithub$elm_bootstrap_html$Bootstrap_Html$btnDefault$,
+	'btn-block',
 	_elm_lang$core$Native_Utils.update(
 		_circuithub$elm_bootstrap_html$Bootstrap_Html$btnParam,
 		{
@@ -12776,41 +12828,67 @@ var _gdotdesign$elm_ui$Main$decrementButton = A2(
 		}),
 	_gdotdesign$elm_ui$Main$Decrement);
 var _gdotdesign$elm_ui$Main$Increment = {ctor: 'Increment'};
-var _gdotdesign$elm_ui$Main$incrementButton = A2(
-	_circuithub$elm_bootstrap_html$Bootstrap_Html$btnDefault_,
+var _gdotdesign$elm_ui$Main$incrementButton = A3(
+	_circuithub$elm_bootstrap_html$Bootstrap_Html$btnDefault$,
+	'btn-block',
 	_elm_lang$core$Native_Utils.update(
 		_circuithub$elm_bootstrap_html$Bootstrap_Html$btnParam,
 		{
 			label: _elm_lang$core$Maybe$Just('Increment')
 		}),
 	_gdotdesign$elm_ui$Main$Increment);
-var _gdotdesign$elm_ui$Main$controls = function (model) {
-	return A2(
-		_elm_lang$html$Html$div,
-		_elm_lang$core$Native_List.fromArray(
-			[]),
+var _gdotdesign$elm_ui$Main$counter = function (model) {
+	return _circuithub$elm_bootstrap_html$Bootstrap_Html$row_(
 		_elm_lang$core$Native_List.fromArray(
 			[
-				_gdotdesign$elm_ui$Main$decrementButton,
 				A2(
-				_elm_lang$html$Html$div,
+				_circuithub$elm_bootstrap_html$Bootstrap_Html$colXs_,
+				4,
+				_elm_lang$core$Native_List.fromArray(
+					[_gdotdesign$elm_ui$Main$decrementButton])),
+				A2(
+				_circuithub$elm_bootstrap_html$Bootstrap_Html$colXs_,
+				4,
+				_elm_lang$core$Native_List.fromArray(
+					[
+						A2(
+						_elm_lang$html$Html$div,
+						_elm_lang$core$Native_List.fromArray(
+							[
+								_elm_lang$html$Html_Attributes$class('text-center')
+							]),
+						_elm_lang$core$Native_List.fromArray(
+							[
+								_elm_lang$html$Html$text(
+								_elm_lang$core$Basics$toString(model.counter))
+							]))
+					])),
+				A2(
+				_circuithub$elm_bootstrap_html$Bootstrap_Html$colXs_,
+				4,
+				_elm_lang$core$Native_List.fromArray(
+					[_gdotdesign$elm_ui$Main$incrementButton]))
+			]));
+};
+var _gdotdesign$elm_ui$Main$view = function (model) {
+	return _gdotdesign$elm_ui$Utilities_Layout$container(
+		_elm_lang$core$Native_List.fromArray(
+			[
+				_gdotdesign$elm_ui$Main$br$,
+				_gdotdesign$elm_ui$Utilities_Layout$navbar,
+				_gdotdesign$elm_ui$Main$counter(model),
+				_gdotdesign$elm_ui$Main$br$,
+				_gdotdesign$elm_ui$Main$textInput(model),
+				_gdotdesign$elm_ui$Main$br$,
+				A2(
+				_elm_lang$html$Html$pre,
 				_elm_lang$core$Native_List.fromArray(
 					[]),
 				_elm_lang$core$Native_List.fromArray(
 					[
 						_elm_lang$html$Html$text(
 						_elm_lang$core$Basics$toString(model))
-					])),
-				_gdotdesign$elm_ui$Main$incrementButton
-			]));
-};
-var _gdotdesign$elm_ui$Main$view = function (model) {
-	return _gdotdesign$elm_ui$Main$container(
-		_elm_lang$core$Native_List.fromArray(
-			[
-				_gdotdesign$elm_ui$Main$br$,
-				_gdotdesign$elm_ui$Main$navbar,
-				_gdotdesign$elm_ui$Main$controls(model)
+					]))
 			]));
 };
 var _gdotdesign$elm_ui$Main$main = {

@@ -6,7 +6,7 @@ import * as debug from 'debug'
 
 import * as electronPrebuilt from 'electron-prebuilt'
 
-debug.enable('*')
+debug.enable('elm-electron:*')
 
 const log = debug('elm-electron:scripts/electron.ts')
 const sourceDirectory = join(__dirname, '../../')

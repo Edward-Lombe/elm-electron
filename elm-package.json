@@ -1,11 +1,10 @@
 {
     "version": "1.0.0",
-    "summary": "Elm-UI Project",
+    "summary": "Elm Electron",
     "repository": "https://github.com/gdotdesign/elm-ui.git",
     "license": "BSD3",
     "source-directories": [
-        "source",
-        "/usr/local/lib/node_modules/elm-ui/source"
+        "source/client/elm"
     ],
     "exposed-modules": [],
     "native-modules": true,

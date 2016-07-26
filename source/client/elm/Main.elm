@@ -1,9 +1,14 @@
 import Html exposing (..)
 import Html.App as Html
 import Html.Attributes exposing (..)
+import Html.Events exposing (onInput)
 import Bootstrap.Html exposing (..)
 
 
+import Utilities.Layout exposing (..)
+
+
+main : Program Never
 main =
   Html.program
     { init = init
@@ -17,12 +22,14 @@ main =
 -- MODEL
 
 
-type alias Model = Int
+type alias Model =
+  { counter : Int
+  , input : String }
 
 
 model : Model
 model =
-  0
+  Model 0 ""
 
 
 init : (Model, Cmd Msg)
@@ -35,16 +42,23 @@ init = (model, Cmd.none)
 type Msg
   = Increment
   | Decrement
+  | UpdateInput String
 
 
 update : Msg -> Model -> (Model, Cmd Msg)
 update msg model =
   case msg of
     Increment ->
-      (model + 1, Cmd.none)
+      ({ model | counter = model.counter + 1 }, Cmd.none)
 
     Decrement ->
-      (model - 1, Cmd.none)
+      if model.counter > 0 then
+        ({ model | counter = model.counter - 1 }, Cmd.none)
+      else
+        (model, Cmd.none)
+
+    UpdateInput input ->
+      ({ model | input = input }, Cmd.none)
 
 
 subscriptions : Model -> Sub Msg
@@ -59,7 +73,11 @@ view model =
   container 
     [ br'
     , navbar
-    , controls model
+    , counter model
+    , br'
+    , textInput model
+    , br'
+    , pre [] [ text (toString model) ]
     ]
 
 
@@ -67,39 +85,39 @@ br' : Html a
 br' = br [] []
 
 
-controls : Model -> Html Msg
-controls model =
-  div []
-    [ decrementButton
-    , div [] [ text (toString model) ]
-    , incrementButton
+counter : Model -> Html Msg
+counter model =
+  row_
+    [ colXs_ 4
+      [ decrementButton ]
+    , colXs_ 4
+      [ div [ class "text-center" ] [ text (toString model.counter) ] ]
+    , colXs_ 4
+      [ incrementButton ]
     ]
 
 
-navbar : Html a
-navbar = navbarDefault' ""
-  [ container 
-    [ navbarHeader_ 
-      [ a [ class "navbar-brand" ]
-        [ text "header" ]
+textInput : Model -> Html Msg
+textInput model =
+  row_
+    [ colXs_ 6
+      [ input
+        [ value model.input
+        , class "form-control"
+        , onInput UpdateInput ] []
       ]
     ]
-  ]
-
-
-container : List (Html a) -> Html a
-container content = container_ [ row_ [ colXs_ 12 content ] ]
 
 
 incrementButton : Html Msg
-incrementButton = btnDefault_
+incrementButton = btnDefault' "btn-block"
   { btnParam
   | label = Just "Increment"
   } Increment
 
 
 decrementButton : Html Msg
-decrementButton = btnDefault_
+decrementButton = btnDefault' "btn-block"
   { btnParam
   | label = Just "Decrement"
   } Decrement
