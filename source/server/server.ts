@@ -1,5 +1,11 @@
 'use strict'
 
+/**
+ * This file is responsible for handling the http request made
+ * from the client. It serves the node_modules and renders
+ * the react root
+ */
+
 import { join } from 'path'
 import { readFileSync } from 'fs'
 import * as Koa from 'koa'
@@ -12,7 +18,7 @@ import { createElement } from 'react'
 
 import HTMLPage from '../client/components/html-page'
 
-const log = debug('elm-electron:server.ts')
+const log = debug('elm-electron:server/server.ts')
 
 export const app = new Koa()
 
@@ -22,8 +28,10 @@ export function initialize() {
 
   log('Starting HTTP server')
 
+  // We serve the root of the application at the moment
   app.use(mount('/', serveRoot()))
 
+  // Renders the main html wrapper for the index
   app.use(context => {
 
     if (context.path === '/') {
@@ -33,8 +41,6 @@ export function initialize() {
   })
 
   httpServer.listen(3000)
-
-  return Promise.resolve()
 
 }
 
