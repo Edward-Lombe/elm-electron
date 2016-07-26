@@ -1,6 +1,7 @@
 {
   "globalDependencies": {
     "elm": "registry:dt/elm#0.12.0+20160316155526",
+    "fs-extra-promise": "registry:dt/fs-extra-promise#0.0.0+20160331034741",
     "github-electron": "registry:dt/github-electron#1.2.5+20160624085047",
     "github-electron/electron-prebuilt": "registry:dt/github-electron/electron-prebuilt#0.30.1+20160316155526",
     "koa": "registry:dt/koa#2.0.0+20160619030120",

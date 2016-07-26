@@ -1,4 +1,5 @@
 /// <reference path="globals/elm/index.d.ts" />
+/// <reference path="globals/fs-extra-promise/index.d.ts" />
 /// <reference path="globals/github-electron/electron-prebuilt/index.d.ts" />
 /// <reference path="globals/github-electron/index.d.ts" />
 /// <reference path="globals/koa-mount/index.d.ts" />
