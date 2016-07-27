@@ -34,9 +34,7 @@ export function initialize() {
   // Renders the main html wrapper for the index
   app.use(context => {
 
-    if (context.path === '/') {
-      context.body = '<!DOCTYPE html>' + renderToString(createElement(HTMLPage))
-    }
+    context.body = '<!DOCTYPE html>' + renderToString(createElement(HTMLPage))
 
   })
 

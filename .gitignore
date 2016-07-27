@@ -3,3 +3,4 @@ elm-stuff
 elm-format
 distribution
 dist
+source/client/elm.js

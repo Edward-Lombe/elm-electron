@@ -28,14 +28,28 @@ compile()
  */
 export function compile() {
 
-  const elmInputFile = join(__dirname, '../client/elm/Main.elm')
-  const elmOutputFile = join(__dirname, '../client/elm.js')
+  const walk = fsep['walk']
+  const elmSourceDirectory = j_d('../client/elm')
+  const walker = walk(elmSourceDirectory)
 
-  const elmxInputFile = join(__dirname, '../client/elm/ElmxTest.x.elm')
-  const elmxOutputFile = join(__dirname, '../client/elm/ElmxTest.elm')
+  walker
+    .on('data', data => {
+      const x = '.x.elm'
+      const { path } = data
+      if (path.includes(x)) {
+        const outputPath = path.replace(x, '.elm')
+        elmxMake(path, outputPath)
+      }
+    })
 
-  elmxMake(elmxInputFile, elmxOutputFile)
+  const elmInputFile = j_d('../client/elm/Main.elm')
+  const elmOutputFile = j_d('../client/elm.js')
+
   elmMake(elmInputFile, elmOutputFile)
+
+  function j_d(s: string) {
+    return join(__dirname, s)
+  }
 
 }
 
@@ -73,15 +87,9 @@ export function elmxMake(inputFile: string, outputFile: string): void {
 
   const elmx = require('elmx')
 
-  log('reading elmx source file')
-
   const elmxFile = fsep.readFileSync(inputFile).toString()
 
-  log('compiling elmx file to elm')
-
   const elmSource = elmx(elmxFile)
-
-  log('successfully compiled elmx file to elm')
 
   fsep.writeFileSync(outputFile, elmSource)
 
