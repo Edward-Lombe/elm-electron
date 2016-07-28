@@ -18,7 +18,7 @@ which uses nodemon to watch the source directory for changes
 ```text
 source
 ├── client
-│   ├── components
+│   ├── react-components
 │   │   └── html-page.tsx
 │   ├── elm
 │   │   ├── Main.elm
