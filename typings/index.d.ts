@@ -10,4 +10,5 @@
 /// <reference path="globals/react-dom/index.d.ts" />
 /// <reference path="globals/react/index.d.ts" />
 /// <reference path="globals/socket.io/index.d.ts" />
+/// <reference path="globals/websocket/index.d.ts" />
 /// <reference path="modules/debug/index.d.ts" />

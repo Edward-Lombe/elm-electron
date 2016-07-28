@@ -3,8 +3,9 @@ import Html.Attributes exposing (..)
 import Html.Events exposing (onInput, onClick)
 import Bootstrap.Html exposing (..)
 import RouteUrl exposing (..)
-import Navigation exposing (Location)
+import Navigation exposing (Location, newUrl)
 import Debug exposing (log)
+
 
 import Utilities.Layout exposing (..)
 
@@ -12,11 +13,11 @@ import Utilities.Layout exposing (..)
 delta2url : Model -> Model -> Maybe UrlChange
 delta2url oldModel newModel =
   case newModel.linkTo of
-    Just "/test" ->
-      Just
-        { entry = NewEntry
-        , url = "/test"
-        }
+    -- Just "/test" ->
+    --   Just
+    --     { entry = NewEntry
+    --     , url = "/test"
+    --     }
     _ ->
       Nothing
         
@@ -26,7 +27,9 @@ location2messages : Location -> List Msg
 location2messages location =
   case location.pathname of
     "/test" ->
-      [ log "#test: Increment" Increment ]
+      [ Increment
+      , Increment
+      ]
     _ ->
       log (toString location) []
 
@@ -52,6 +55,7 @@ type alias Model =
   , input : String
   , message : String
   , linkTo : Maybe String
+  , mouseString : String
   }
 
 
@@ -71,6 +75,9 @@ model =
     -- linkTo
     Nothing
 
+    -- mouseString
+    ""
+
 
 init : (Model, Cmd Msg)
 init = (model, Cmd.none)
@@ -81,7 +88,7 @@ init = (model, Cmd.none)
 
 type Msg
   = Increment
-  | TestChange
+  | NavigatePage
   | Decrement
   | UpdateInput String
 
@@ -101,8 +108,9 @@ update msg model =
     UpdateInput input ->
       ( { model | input = input }, Cmd.none )
 
-    TestChange ->
-      ( { model | linkTo = Just "/test" }, Cmd.none )
+    NavigatePage ->
+      -- ( { model | linkTo = Just "/test" }, newUrl "/test" )
+      ( model, newUrl "/test" )
 
 
 decrementModel : Model -> (Model, Cmd Msg)
@@ -143,7 +151,7 @@ view model =
 
 
 testLink : Html Msg
-testLink = a [ onClick TestChange ] [ text "Click me!" ]
+testLink = a [ onClick NavigatePage ] [ text "Click me!" ]
 
 
 br' : Html a

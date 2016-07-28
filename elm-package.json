@@ -1,7 +1,7 @@
 {
     "version": "1.0.0",
     "summary": "Elm Electron",
-    "repository": "https://github.com/gdotdesign/elm-ui.git",
+    "repository": "https://github.com/Edward-Lombe/elm-electron.git",
     "license": "BSD3",
     "source-directories": [
         "source/client/elm"

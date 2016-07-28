@@ -21,7 +21,13 @@ app.on('ready', () => {
 
   log('Opening main app window')
 
-  const browserWindow = new BrowserWindow()
+  const options: Electron.BrowserWindowOptions = {
+    width: 1024,
+    height: 768,
+    minWidth: 600,
+    minHeight: 400
+  }
+  const browserWindow = new BrowserWindow(options)
   const { webContents } = browserWindow
 
   webContents.openDevTools()

@@ -16,7 +16,7 @@ import * as http from 'http'
 import { renderToString } from 'react-dom/server'
 import { createElement } from 'react'
 
-import HTMLPage from '../client/components/html-page'
+import HTMLPage from '../client/react-components/html-page'
 
 const log = debug('elm-electron:server/server.ts')
 
