@@ -5,14 +5,17 @@ import Bootstrap.Html exposing (..)
 import RouteUrl exposing (..)
 import Navigation exposing (Location, newUrl)
 import Debug exposing (log)
+import Mouse
+import Time
 
-
+import Pages.Button as ButtonPage
+import Pages.Field as FieldPage
 import Utilities.Layout exposing (..)
 
 
 delta2url : Model -> Model -> Maybe UrlChange
 delta2url oldModel newModel =
-  case newModel.linkTo of
+  case newModel of
     -- Just "/test" ->
     --   Just
     --     { entry = NewEntry
@@ -54,8 +57,8 @@ type alias Model =
   { counter : Int
   , input : String
   , message : String
-  , linkTo : Maybe String
-  , mouseString : String
+  , mousePosition : Mouse.Position
+  , time : Time.Time
   }
 
 
@@ -72,12 +75,11 @@ model =
     -- message
     ""
 
-    -- linkTo
-    Nothing
+    -- mousePosition
+    { x = 0, y = 0 }
 
-    -- mouseString
-    ""
-
+    -- time
+    0
 
 init : (Model, Cmd Msg)
 init = (model, Cmd.none)
@@ -88,6 +90,8 @@ init = (model, Cmd.none)
 
 type Msg
   = Increment
+  | MouseMove Mouse.Position
+  | TimeTick Time.Time
   | NavigatePage
   | Decrement
   | UpdateInput String
@@ -109,8 +113,19 @@ update msg model =
       ( { model | input = input }, Cmd.none )
 
     NavigatePage ->
-      -- ( { model | linkTo = Just "/test" }, newUrl "/test" )
       ( model, newUrl "/test" )
+    
+    MouseMove position ->
+      ( { model
+        | mousePosition = position
+        }
+      , Cmd.none )
+    
+    TimeTick newTime ->
+      ( { model
+        | time = newTime
+        }
+      , Cmd.none )
 
 
 decrementModel : Model -> (Model, Cmd Msg)
@@ -129,7 +144,11 @@ decrementModel model =
 
 
 subscriptions : Model -> Sub Msg
-subscriptions model = Sub.none
+subscriptions model =
+  Sub.batch
+    [ Mouse.clicks MouseMove
+    , Time.every Time.second TimeTick
+    ]
 
 
 -- VIEW
