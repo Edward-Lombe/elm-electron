@@ -8,6 +8,7 @@ import String
 
 
 
+main : Program Never
 main =
   Html.beginnerProgram
     { model = model

@@ -6,6 +6,7 @@ import Html.Events exposing (onClick)
 
 
 
+main : Program Never
 main =
   Html.beginnerProgram
     { model = model
