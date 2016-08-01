@@ -13,6 +13,8 @@ import { join } from 'path'
 import * as fsep from 'fs-extra-promise'
 import * as debug from 'debug'
 
+import { j_d } from './utilities'
+
 debug.enable('*')
 
 const log = debug('scripts/elm-make.ts')
@@ -46,10 +48,6 @@ export function compile() {
   const elmOutputFile = j_d('../client/elm.js')
 
   elmMake(elmInputFile, elmOutputFile)
-
-  function j_d(s: string) {
-    return join(__dirname, s)
-  }
 
 }
 

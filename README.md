@@ -24,31 +24,41 @@ which uses nodemon to watch the source directory for changes.
 
 ## structure
 
-```text
-source
+[//]: # (START_FILE_STRUCTURE)
+
+```plaintext
+./source
 ├── client
-│   ├── react-components
-│   │   └── html-page.tsx
 │   ├── elm
 │   │   ├── Main.elm
-│   │   ├── Model.elm
+│   │   ├── Messages.elm
+│   │   ├── Models.elm
 │   │   ├── Pages
 │   │   │   ├── Button.elm
 │   │   │   └── Field.elm
-│   │   ├── Update.elm
+│   │   ├── Subscriptions.elm
+│   │   ├── Updates.elm
 │   │   ├── Utilities
 │   │   │   └── Layout.elm
-│   │   └── View.elm
+│   │   └── Views.elm
 │   ├── elm.js
 │   ├── main.ts
+│   ├── react-components
+│   │   └── html-page.tsx
 │   └── webpack.config.ts
 ├── scripts
 │   ├── electron.ts
-│   └── elm-make.ts
+│   ├── elm-make.ts
+│   ├── update-README.ts
+│   └── utilities.ts
 └── server
-    ├── main.ts
-    └── server.ts
+├── main.ts
+└── server.ts
+
+7 directories, 19 files
 ```
+
+[//]: # (END_FILE_STRUCTURE)
 
 Entry path is more or less as follows,
 
@@ -73,6 +83,7 @@ a new instance of `BrowserWindow`, start the HTTP server and point the page to
 
 ## things to do
 
+- Finish the source path
 - Set up [plop](https://github.com/amwmedia/plop) generators for adding a page,
   path, route, whatever, etc
 - Implement a sane extentable (real world) example of a SPA architexture using Elm
