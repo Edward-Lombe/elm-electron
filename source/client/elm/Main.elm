@@ -1,5 +1,6 @@
 module Main exposing (..)
 
+
 import RouteUrl exposing (..)
 import Navigation exposing (Location, newUrl)
 import Debug exposing (log)
@@ -15,14 +16,8 @@ import Models exposing (Model, init)
 delta2url : Model -> Model -> Maybe UrlChange
 delta2url oldModel newModel =
   case newModel of
-    -- Just "/test" ->
-    --   Just
-    --     { entry = NewEntry
-    --     , url = "/test"
-    --     }
     _ ->
       Nothing
-        
 
 
 location2messages : Location -> List Message

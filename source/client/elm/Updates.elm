@@ -7,6 +7,7 @@ import Navigation exposing (newUrl)
 import Models exposing (Model)
 import Messages exposing (Message(..))
 
+
 update : Message -> Model -> (Model, Cmd Message)
 update msg model =
   case msg of
