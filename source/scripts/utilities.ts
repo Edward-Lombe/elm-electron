@@ -2,6 +2,6 @@
 
 import { join } from 'path'
 
-export function j_d(s: string) {
+export function jd(s: string) {
   return join(__dirname, s)
 }

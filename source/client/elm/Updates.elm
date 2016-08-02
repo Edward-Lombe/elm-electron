@@ -26,8 +26,8 @@ update msg model =
         UpdateInput input ->
             ( { model | input = input }, Cmd.none )
 
-        NavigatePage ->
-            ( model, newUrl "/test" )
+        NavigatePage pageString ->
+            ( model, newUrl ("/" ++ pageString) )
 
         MouseMove position ->
             ( { model

@@ -30,7 +30,7 @@ view model =
 
 testLink : Html Message
 testLink =
-    a [ onClick Messages.NavigatePage ] [ text "Click me!" ]
+    a [ onClick (Messages.NavigatePage "test") ] [ text "Click me!" ]
 
 
 br' : Html a

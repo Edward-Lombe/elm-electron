@@ -1,16 +1,20 @@
 'use strict'
 
-import { j_d } from './utilities'
+import { jd } from './utilities'
 import { spawn } from 'child_process'
 import * as fsep from 'fs-extra-promise'
+import * as debug from 'debug'
 
 const dedent = require('dedent')
+const log = debug('elm-electron:scripts/update-README.ts')
+
+debug.enable('*')
 
 updateREADME()
 
 async function updateREADME() {
 
-  const README_PATH = j_d('../../README.md')
+  const README_PATH = jd('../../README.md')
   const README_BUFFER = await fsep.readFileAsync(README_PATH)
   const README_CONTENTS = README_BUFFER.toString()
   const SOURCE_TREE = await sourceFolderTree()
@@ -31,7 +35,9 @@ async function updateREADME() {
 
   const newReadme = replaceBetween(START_MARKER, END_MARKER)(README_CONTENTS, pre)
 
-  fsep.writeFileAsync(README_PATH, newReadme)
+  await fsep.writeFileAsync(README_PATH, newReadme)
+
+  log('Wrote new README sucessfulyl')
 
 }
 
@@ -48,11 +54,12 @@ function replaceBetween(start: string, end: string) {
 function sourceFolderTree(): Promise<string> {
 
 
-  const cwd = j_d('../../')
+  const cwd = jd('../../')
   const process = spawn('tree', ['./source'], { cwd })
 
   return new Promise<string>((resolve, reject) => {
     process.stdout.on('data', data => {
+      log('Generate source tree')
       resolve(data.toString())
     })
   })

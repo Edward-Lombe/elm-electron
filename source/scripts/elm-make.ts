@@ -13,7 +13,7 @@ import { join } from 'path'
 import * as fsep from 'fs-extra-promise'
 import * as debug from 'debug'
 
-import { j_d } from './utilities'
+import { jd } from './utilities'
 
 debug.enable('*')
 
@@ -31,7 +31,7 @@ compile()
 export function compile() {
 
   const walk = fsep['walk']
-  const elmSourceDirectory = j_d('../client/elm')
+  const elmSourceDirectory = jd('../client/elm')
   const walker = walk(elmSourceDirectory)
 
   walker
@@ -44,8 +44,8 @@ export function compile() {
       }
     })
 
-  const elmInputFile = j_d('../client/elm/Main.elm')
-  const elmOutputFile = j_d('../client/elm.js')
+  const elmInputFile = jd('../client/elm/Main.elm')
+  const elmOutputFile = jd('../client/elm.js')
 
   elmMake(elmInputFile, elmOutputFile)
 

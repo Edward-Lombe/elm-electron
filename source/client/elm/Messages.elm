@@ -9,6 +9,6 @@ type Message
     | Increment
     | MouseMove Mouse.Position
     | TimeTick Time.Time
-    | NavigatePage
+    | NavigatePage String
     | Decrement
     | UpdateInput String
