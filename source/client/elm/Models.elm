@@ -10,7 +10,9 @@ import Messages exposing (Message)
 
 
 type alias SaleNote =
-    { saleNoteNumber : String }
+    { saleNoteNumber : String
+    , createdAt : Time.Time
+    }
 
 
 type alias Model =
@@ -20,6 +22,7 @@ type alias Model =
     , mousePosition : Mouse.Position
     , time : Time.Time
     , saleNotes : List SaleNote
+    , showPage : Bool
     }
 
 
@@ -34,6 +37,7 @@ model =
         }
     , time = 0
     , saleNotes = []
+    , showPage = False
     }
 
 

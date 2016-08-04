@@ -22,8 +22,8 @@ app.on('ready', () => {
   log('Opening main app window')
 
   const options: Electron.BrowserWindowOptions = {
-    width: 1024,
-    height: 768,
+    width: 1600,
+    height: 900,
     minWidth: 600,
     minHeight: 400
   }

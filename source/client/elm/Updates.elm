@@ -43,8 +43,26 @@ update msg model =
             , Cmd.none
             )
 
+        SubmitSaleNote ->
+            addSaleNote model
+
         NoOp ->
             ( model, Cmd.none )
+
+
+addSaleNote : Model -> ( Model, Cmd Message )
+addSaleNote model =
+    ( { model
+        | saleNotes =
+            ({ saleNoteNumber = model.input
+             , createdAt = model.time
+             }
+            )
+                :: model.saleNotes
+        , input = ""
+      }
+    , Cmd.none
+    )
 
 
 decrementModel : Model -> ( Model, Cmd Message )

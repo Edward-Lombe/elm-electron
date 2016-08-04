@@ -15,16 +15,26 @@ import Utilities.Layout exposing (..)
 
 view : Model -> Html Message
 view model =
-    container
-        [ br'
-        , navbar
-        , counter model
+    pageLayout
+        [ counter model
         , br'
         , textInput model
         , br'
         , pre [] [ text (toString model) ]
         , br'
         , testLink
+        ]
+
+
+pageLayout : List (Html Message) -> Html Message
+pageLayout children =
+    container
+        [ br'
+        , navbar
+        , row_
+            [ colXs_ 3 [ listGroup [] ]
+            , colXs_ 9 children
+            ]
         ]
 
 
@@ -61,9 +71,20 @@ textInput model =
                 ]
                 []
             ]
-        , colXs_ 6
+        , colXs_ 3
+            [ addSaleNoteButton ]
+        , colXs_ 3
             [ text model.message ]
         ]
+
+
+addSaleNoteButton : Html Message
+addSaleNoteButton =
+    btnDefault' "btn-block"
+        { btnParam
+            | label = Just "Add Sale Note"
+        }
+        Messages.SubmitSaleNote
 
 
 incrementButton : Html Message

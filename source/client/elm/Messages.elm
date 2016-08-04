@@ -4,6 +4,11 @@ import Mouse
 import Time
 
 
+-- Local Imports
+
+import SaleNote exposing (SaleNote)
+
+
 type Message
     = NoOp
     | Increment
@@ -12,3 +17,4 @@ type Message
     | NavigatePage String
     | Decrement
     | UpdateInput String
+    | SubmitSaleNote
