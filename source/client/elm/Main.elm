@@ -7,6 +7,7 @@ import Navigation exposing (Location, newUrl)
 
 -- Local Imports
 
+import Pages exposing (Page)
 import Views exposing (view)
 import Updates exposing (update)
 import Messages exposing (Message)
@@ -25,8 +26,11 @@ location2messages : Location -> List Message
 location2messages location =
     case location.pathname of
         "/test" ->
-            [ Messages.Increment
-            , Messages.Increment
+            [ Messages.DisplayPage Pages.Test
+            ]
+
+        "/" ->
+            [ Messages.DisplayPage Pages.Main
             ]
 
         _ ->

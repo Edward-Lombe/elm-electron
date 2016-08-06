@@ -17,14 +17,14 @@ update msg model =
                 | message = ""
                 , counter = model.counter + 1
               }
-            , Cmd.none
+            , cn
             )
 
         Decrement ->
             decrementModel model
 
         UpdateInput input ->
-            ( { model | input = input }, Cmd.none )
+            ( { model | input = input }, cn )
 
         NavigatePage pageString ->
             ( model, newUrl ("/" ++ pageString) )
@@ -33,36 +33,55 @@ update msg model =
             ( { model
                 | mousePosition = position
               }
-            , Cmd.none
+            , cn
             )
 
         TimeTick newTime ->
             ( { model
                 | time = newTime
               }
-            , Cmd.none
+            , cn
             )
 
         SubmitSaleNote ->
             addSaleNote model
 
+        DisplayPage page ->
+            ( { model
+                | currentPage = page
+              }
+            , cn
+            )
+
         NoOp ->
-            ( model, Cmd.none )
+            ( model, cn )
+
+
+cn : Cmd a
+cn =
+    Cmd.none
 
 
 addSaleNote : Model -> ( Model, Cmd Message )
 addSaleNote model =
-    ( { model
-        | saleNotes =
-            ({ saleNoteNumber = model.input
-             , createdAt = model.time
-             }
-            )
-                :: model.saleNotes
-        , input = ""
-      }
-    , Cmd.none
-    )
+    if model.input == "" then
+        ( { model
+            | message = "Enter something before adding a sale note"
+          }
+        , Cmd.none
+        )
+    else
+        ( { model
+            | saleNotes =
+                ({ saleNoteNumber = model.input
+                 , createdAt = model.time
+                 }
+                )
+                    :: model.saleNotes
+            , input = ""
+          }
+        , Cmd.none
+        )
 
 
 decrementModel : Model -> ( Model, Cmd Message )

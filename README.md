@@ -33,9 +33,7 @@ which uses nodemon to watch the source directory for changes.
 │   │   ├── Main.elm
 │   │   ├── Messages.elm
 │   │   ├── Models.elm
-│   │   ├── Pages
-│   │   │   ├── Button.elm
-│   │   │   └── Field.elm
+│   │   ├── Pages.elm
 │   │   ├── SaleNote.elm
 │   │   ├── Subscriptions.elm
 │   │   ├── Updates.elm
@@ -57,7 +55,7 @@ which uses nodemon to watch the source directory for changes.
 ├── main.ts
 └── server.ts
 
-7 directories, 21 files
+6 directories, 20 files
 ```
 
 [//]: # (END_FILE_STRUCTURE)

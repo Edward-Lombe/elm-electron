@@ -2,18 +2,32 @@ module Utilities.Layout exposing (..)
 
 import Html exposing (..)
 import Html.Attributes exposing (..)
+import Html.Events exposing (..)
 import Bootstrap.Html exposing (..)
+
+
+-- Local Imports
+
+import Messages exposing (Message)
 
 
 type alias Component a =
     List (Html a) -> Html a
 
 
-listGroup : Component a
+listGroup : a -> Html Message
 listGroup children =
     ul [ class "list-group" ]
-        [ listGroupItem [ t "Hello" ]
-        , listGroupItem [ t "Hello" ]
+        [ a
+            [ onClick (Messages.NavigatePage "")
+            , class "list-group-item"
+            ]
+            [ text "Main" ]
+        , a
+            [ onClick (Messages.NavigatePage "test")
+            , class "list-group-item"
+            ]
+            [ text "Test" ]
         ]
 
 

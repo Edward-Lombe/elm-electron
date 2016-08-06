@@ -6,7 +6,7 @@ import Time
 
 -- Local Imports
 
-import SaleNote exposing (SaleNote)
+import Pages exposing (Page(..))
 
 
 type Message
@@ -18,3 +18,4 @@ type Message
     | Decrement
     | UpdateInput String
     | SubmitSaleNote
+    | DisplayPage Page

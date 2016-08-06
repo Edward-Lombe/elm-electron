@@ -1,4 +1,4 @@
-module Models exposing (Model, init)
+module Models exposing (..)
 
 import Mouse
 import Time
@@ -7,6 +7,7 @@ import Time
 -- Local Imports
 
 import Messages exposing (Message)
+import Pages exposing (Page(..))
 
 
 type alias SaleNote =
@@ -22,7 +23,7 @@ type alias Model =
     , mousePosition : Mouse.Position
     , time : Time.Time
     , saleNotes : List SaleNote
-    , showPage : Bool
+    , currentPage : Page
     }
 
 
@@ -37,7 +38,7 @@ model =
         }
     , time = 0
     , saleNotes = []
-    , showPage = False
+    , currentPage = Main
     }
 
 

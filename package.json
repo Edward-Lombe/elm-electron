@@ -11,7 +11,7 @@
     "elm-make": "npm run ts-node -- ./source/scripts/elm-make.ts",
     "nodemon": "node ./node_modules/nodemon/bin/nodemon.js",
     "watch": "npm run nodemon -- --watch source --ext elm,ts,tsx --exec \"npm run maybe-format && npm run update-README && npm start\" --ignore source/client/elm/Pages/Index.elm",
-    "format": "./elm-format --yes source/client/elm/*.elm",
+    "format": "./binaries/elm-format --yes source/client/elm/*.elm",
     "maybe-format": "npm run ts-node -- ./source/scripts/maybe-format.ts",
     "build": "npm run elm-make && npm run webpack",
     "webpack": "node ./node_modules/webpack/bin/webpack.js",

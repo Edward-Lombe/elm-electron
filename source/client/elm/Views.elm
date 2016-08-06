@@ -8,6 +8,7 @@ import Bootstrap.Html exposing (..)
 
 -- Local Imports
 
+import Pages exposing (Page)
 import Models exposing (Model)
 import Messages exposing (Message)
 import Utilities.Layout exposing (..)
@@ -15,15 +16,38 @@ import Utilities.Layout exposing (..)
 
 view : Model -> Html Message
 view model =
-    pageLayout
-        [ counter model
-        , br'
-        , textInput model
-        , br'
-        , pre [] [ text (toString model) ]
-        , br'
-        , testLink
-        ]
+    case model.currentPage of
+        Pages.Test ->
+            pageLayout
+                [ text "Hello!"
+                , br'
+                , homeLink
+                , br'
+                , modelDisplay model
+                ]
+
+        Pages.Main ->
+            pageLayout
+                [ counter model
+                , br'
+                , textInput model
+                , br'
+                , modelDisplay model
+                , br'
+                , testLink
+                ]
+
+        Pages.Counter ->
+            pageLayout
+                [ text "Counter Page"
+                , br'
+                , homeLink
+                ]
+
+
+modelDisplay : a -> Html b
+modelDisplay model =
+    pre [] [ text (toString model) ]
 
 
 pageLayout : List (Html Message) -> Html Message
@@ -40,7 +64,12 @@ pageLayout children =
 
 testLink : Html Message
 testLink =
-    a [ onClick (Messages.NavigatePage "test") ] [ text "Click me!" ]
+    a [ onClick (Messages.NavigatePage "test") ] [ text "Test" ]
+
+
+homeLink : Html Message
+homeLink =
+    a [ onClick (Messages.NavigatePage "") ] [ text "Home" ]
 
 
 br' : Html a
