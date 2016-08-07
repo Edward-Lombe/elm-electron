@@ -58,8 +58,8 @@ update msg model =
             ( { model
                 | buttonModel = (ElmArchitecture.Button.update msg model.buttonModel)
               }
-            , cn )
-            
+            , cn
+            )
 
         NoOp ->
             ( model, cn )

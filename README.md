@@ -57,13 +57,14 @@ which uses nodemon to watch the source directory for changes.
 |   |-- electron.ts
 |   |-- elm-make.ts
 |   |-- maybe-format.ts
+|   |-- timestamp
 |   |-- update-README.ts
 |   `-- utilities.ts
 `-- server
 |-- main.ts
 `-- server.ts
 
-7 directories, 27 files
+7 directories, 28 files
 ```
 
 [//]: # (END_FILE_STRUCTURE)

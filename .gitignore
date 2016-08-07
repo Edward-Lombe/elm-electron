@@ -4,3 +4,4 @@ elm-format
 distribution
 dist
 source/client/elm.js
+source/scripts/timestamp

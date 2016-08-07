@@ -17,9 +17,7 @@ import Subscriptions exposing (subscriptions)
 
 delta2url : Model -> Model -> Maybe UrlChange
 delta2url oldModel newModel =
-    case newModel of
-        _ ->
-            Nothing
+    Nothing
 
 
 location2messages : Location -> List Message

@@ -15,6 +15,7 @@
     "websocket": "registry:dt/websocket#0.0.0+20160720001629"
   },
   "dependencies": {
-    "debug": "registry:npm/debug#2.0.0+20160511151334"
+    "debug": "registry:npm/debug#2.0.0+20160511151334",
+    "ms": "registry:npm/ms#0.1.0+20160723033700"
   }
 }

@@ -47,7 +47,7 @@ view model =
                 ]
 
         Pages.Button ->
-            pageLayout [map (\msg -> Messages.Button msg) (ElmArchitecture.Button.view model.buttonModel)]
+            pageLayout [ map (\msg -> Messages.Button msg) (ElmArchitecture.Button.view model.buttonModel) ]
 
 
 modelDisplay : a -> Html b

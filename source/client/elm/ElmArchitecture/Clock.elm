@@ -7,6 +7,7 @@ import Svg.Attributes exposing (..)
 import Time exposing (Time, second)
 
 
+main : Program Never
 main =
     Html.program
         { init = init
