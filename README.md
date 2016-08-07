@@ -28,34 +28,42 @@ which uses nodemon to watch the source directory for changes.
 
 ```plaintext
 ./source
-├── client
-│   ├── elm
-│   │   ├── Main.elm
-│   │   ├── Messages.elm
-│   │   ├── Models.elm
-│   │   ├── Pages.elm
-│   │   ├── SaleNote.elm
-│   │   ├── Subscriptions.elm
-│   │   ├── Updates.elm
-│   │   ├── Utilities
-│   │   │   └── Layout.elm
-│   │   └── Views.elm
-│   ├── elm.js
-│   ├── main.ts
-│   ├── react-components
-│   │   └── html-page.tsx
-│   └── webpack.config.ts
-├── scripts
-│   ├── electron.ts
-│   ├── elm-make.ts
-│   ├── maybe-format.ts
-│   ├── update-README.ts
-│   └── utilities.ts
-└── server
-├── main.ts
-└── server.ts
+|-- client
+|   |-- elm
+|   |   |-- ElmArchitecture
+|   |   |   |-- Button.elm
+|   |   |   |-- Clock.elm
+|   |   |   |-- Field.elm
+|   |   |   |-- Form.elm
+|   |   |   |-- Http.elm
+|   |   |   |-- Random.elm
+|   |   |   `-- Websockets.elm
+|   |   |-- Main.elm
+|   |   |-- Messages.elm
+|   |   |-- Models.elm
+|   |   |-- Pages.elm
+|   |   |-- SaleNote.elm
+|   |   |-- Subscriptions.elm
+|   |   |-- Updates.elm
+|   |   |-- Utilities
+|   |   |   `-- Layout.elm
+|   |   `-- Views.elm
+|   |-- elm.js
+|   |-- main.ts
+|   |-- react-components
+|   |   `-- html-page.tsx
+|   `-- webpack.config.ts
+|-- scripts
+|   |-- electron.ts
+|   |-- elm-make.ts
+|   |-- maybe-format.ts
+|   |-- update-README.ts
+|   `-- utilities.ts
+`-- server
+|-- main.ts
+`-- server.ts
 
-6 directories, 20 files
+7 directories, 27 files
 ```
 
 [//]: # (END_FILE_STRUCTURE)

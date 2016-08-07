@@ -7,6 +7,7 @@ import Navigation exposing (newUrl)
 
 import Models exposing (Model)
 import Messages exposing (Message(..))
+import ElmArchitecture.Button
 
 
 update : Message -> Model -> ( Model, Cmd Message )
@@ -52,6 +53,13 @@ update msg model =
               }
             , cn
             )
+
+        Button msg ->
+            ( { model
+                | buttonModel = (ElmArchitecture.Button.update msg model.buttonModel)
+              }
+            , cn )
+            
 
         NoOp ->
             ( model, cn )

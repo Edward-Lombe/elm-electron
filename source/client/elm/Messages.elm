@@ -2,6 +2,7 @@ module Messages exposing (..)
 
 import Mouse
 import Time
+import ElmArchitecture.Button
 
 
 -- Local Imports
@@ -19,3 +20,4 @@ type Message
     | UpdateInput String
     | SubmitSaleNote
     | DisplayPage Page
+    | Button ElmArchitecture.Button.Msg

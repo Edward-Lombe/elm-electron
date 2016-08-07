@@ -28,6 +28,16 @@ listGroup children =
             , class "list-group-item"
             ]
             [ text "Test" ]
+        , a
+            [ onClick (Messages.NavigatePage "counter")
+            , class "list-group-item"
+            ]
+            [ text "Counter" ]
+        , a
+            [ onClick (Messages.NavigatePage "ElmArchitecture/Button")
+            , class "list-group-item"
+            ]
+            [ text "Button" ]
         ]
 
 

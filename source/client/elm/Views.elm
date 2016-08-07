@@ -3,6 +3,7 @@ module Views exposing (..)
 import Html exposing (..)
 import Html.Attributes exposing (..)
 import Html.Events exposing (onInput, onClick)
+import Html.App exposing (map)
 import Bootstrap.Html exposing (..)
 
 
@@ -12,6 +13,7 @@ import Pages exposing (Page)
 import Models exposing (Model)
 import Messages exposing (Message)
 import Utilities.Layout exposing (..)
+import ElmArchitecture.Button
 
 
 view : Model -> Html Message
@@ -43,6 +45,9 @@ view model =
                 , br'
                 , homeLink
                 ]
+
+        Pages.Button ->
+            pageLayout [map (\msg -> Messages.Button msg) (ElmArchitecture.Button.view model.buttonModel)]
 
 
 modelDisplay : a -> Html b

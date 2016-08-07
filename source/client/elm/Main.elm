@@ -29,6 +29,14 @@ location2messages location =
             [ Messages.DisplayPage Pages.Test
             ]
 
+        "/counter" ->
+            [ Messages.DisplayPage Pages.Counter
+            ]
+
+        "/ElmArchitecture/Button" ->
+            [ Messages.DisplayPage Pages.Button
+            ]
+
         "/" ->
             [ Messages.DisplayPage Pages.Main
             ]
