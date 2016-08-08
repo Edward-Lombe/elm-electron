@@ -3,6 +3,7 @@ module Messages exposing (..)
 import Mouse
 import Time
 import ElmArchitecture.Button
+import ElmArchitecture.Clock
 
 
 -- Local Imports
@@ -21,3 +22,4 @@ type Message
     | SubmitSaleNote
     | DisplayPage Page
     | Button ElmArchitecture.Button.Msg
+    | Clock ElmArchitecture.Clock.Msg

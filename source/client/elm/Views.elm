@@ -14,6 +14,7 @@ import Models exposing (Model)
 import Messages exposing (Message)
 import Utilities.Layout exposing (..)
 import ElmArchitecture.Button
+import ElmArchitecture.Clock
 
 
 view : Model -> Html Message
@@ -48,6 +49,9 @@ view model =
 
         Pages.Button ->
             pageLayout [ map (\msg -> Messages.Button msg) (ElmArchitecture.Button.view model.buttonModel) ]
+
+        Pages.Clock ->
+            pageLayout [ map (\msg -> Messages.Clock msg) (ElmArchitecture.Clock.view model.clockModel) ]
 
 
 modelDisplay : a -> Html b

@@ -9,6 +9,7 @@ import Time
 import Messages exposing (Message)
 import Pages exposing (Page(..))
 import ElmArchitecture.Button
+import ElmArchitecture.Clock
 
 
 type alias SaleNote =
@@ -26,6 +27,7 @@ type alias Model =
     , saleNotes : List SaleNote
     , currentPage : Page
     , buttonModel : ElmArchitecture.Button.Model
+    , clockModel : ElmArchitecture.Clock.Model
     }
 
 
@@ -42,6 +44,7 @@ model =
     , saleNotes = []
     , currentPage = Main
     , buttonModel = ElmArchitecture.Button.model
+    , clockModel = 0
     }
 
 

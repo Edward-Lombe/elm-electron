@@ -35,6 +35,10 @@ location2messages location =
             [ Messages.DisplayPage Pages.Button
             ]
 
+        "/ElmArchitecture/Clock" ->
+            [ Messages.DisplayPage Pages.Clock
+            ]
+
         "/" ->
             [ Messages.DisplayPage Pages.Main
             ]

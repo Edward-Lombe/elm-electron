@@ -28,41 +28,41 @@ which uses nodemon to watch the source directory for changes.
 
 ```plaintext
 ./source
-|-- client
-|   |-- elm
-|   |   |-- ElmArchitecture
-|   |   |   |-- Button.elm
-|   |   |   |-- Clock.elm
-|   |   |   |-- Field.elm
-|   |   |   |-- Form.elm
-|   |   |   |-- Http.elm
-|   |   |   |-- Random.elm
-|   |   |   `-- Websockets.elm
-|   |   |-- Main.elm
-|   |   |-- Messages.elm
-|   |   |-- Models.elm
-|   |   |-- Pages.elm
-|   |   |-- SaleNote.elm
-|   |   |-- Subscriptions.elm
-|   |   |-- Updates.elm
-|   |   |-- Utilities
-|   |   |   `-- Layout.elm
-|   |   `-- Views.elm
-|   |-- elm.js
-|   |-- main.ts
-|   |-- react-components
-|   |   `-- html-page.tsx
-|   `-- webpack.config.ts
-|-- scripts
-|   |-- electron.ts
-|   |-- elm-make.ts
-|   |-- maybe-format.ts
-|   |-- timestamp
-|   |-- update-README.ts
-|   `-- utilities.ts
-`-- server
-|-- main.ts
-`-- server.ts
+├── client
+│   ├── elm
+│   │   ├── ElmArchitecture
+│   │   │   ├── Button.elm
+│   │   │   ├── Clock.elm
+│   │   │   ├── Field.elm
+│   │   │   ├── Form.elm
+│   │   │   ├── Http.elm
+│   │   │   ├── Random.elm
+│   │   │   └── Websockets.elm
+│   │   ├── Main.elm
+│   │   ├── Messages.elm
+│   │   ├── Models.elm
+│   │   ├── Pages.elm
+│   │   ├── SaleNote.elm
+│   │   ├── Subscriptions.elm
+│   │   ├── Updates.elm
+│   │   ├── Utilities
+│   │   │   └── Layout.elm
+│   │   └── Views.elm
+│   ├── elm.js
+│   ├── main.ts
+│   ├── react-components
+│   │   └── html-page.tsx
+│   └── webpack.config.ts
+├── scripts
+│   ├── electron.ts
+│   ├── elm-make.ts
+│   ├── maybe-format.ts
+│   ├── timestamp
+│   ├── update-README.ts
+│   └── utilities.ts
+└── server
+├── main.ts
+└── server.ts
 
 7 directories, 28 files
 ```

@@ -38,6 +38,11 @@ listGroup children =
             , class "list-group-item"
             ]
             [ text "Button" ]
+        , a
+            [ onClick (Messages.NavigatePage "ElmArchitecture/Clock")
+            , class "list-group-item"
+            ]
+            [ text "Clock" ]
         ]
 
 

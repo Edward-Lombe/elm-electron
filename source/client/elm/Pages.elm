@@ -6,3 +6,4 @@ type Page
     | Test
     | Counter
     | Button
+    | Clock

@@ -8,6 +8,7 @@ import Navigation exposing (newUrl)
 import Models exposing (Model)
 import Messages exposing (Message(..))
 import ElmArchitecture.Button
+import ElmArchitecture.Clock
 
 
 update : Message -> Model -> ( Model, Cmd Message )
@@ -57,6 +58,13 @@ update msg model =
         Button msg ->
             ( { model
                 | buttonModel = (ElmArchitecture.Button.update msg model.buttonModel)
+              }
+            , cn
+            )
+
+        Clock msg ->
+            ( { model
+                | clockModel = fst (ElmArchitecture.Clock.update msg model.clockModel)
               }
             , cn
             )
