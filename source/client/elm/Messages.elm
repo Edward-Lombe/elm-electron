@@ -23,3 +23,5 @@ type Message
     | DisplayPage Page
     | Button ElmArchitecture.Button.Msg
     | Clock ElmArchitecture.Clock.Msg
+    | WebSocketMessage String
+    | SendWebSocketMessage String

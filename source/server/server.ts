@@ -17,6 +17,7 @@ import { renderToString } from 'react-dom/server'
 import { createElement } from 'react'
 
 import HTMLPage from '../client/react-components/html-page'
+import * as websocket from './websocket'
 
 const log = debug('elm-electron:server/server.ts')
 
@@ -37,6 +38,8 @@ export function initialize() {
     context.body = '<!DOCTYPE html>' + renderToString(createElement(HTMLPage))
 
   })
+
+  websocket.initialize(httpServer)
 
   httpServer.listen(3000)
 

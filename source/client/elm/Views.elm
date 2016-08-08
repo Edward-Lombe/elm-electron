@@ -42,7 +42,11 @@ view model =
 
         Pages.Counter ->
             pageLayout
-                [ text "Counter Page"
+                [ text "Not actually a counter"
+                , br'
+                , counter model
+                , br'
+                , webSocketButton
                 , br'
                 , homeLink
                 ]
@@ -123,6 +127,16 @@ addSaleNoteButton =
             | label = Just "Add Sale Note"
         }
         Messages.SubmitSaleNote
+
+
+webSocketButton : Html Message
+webSocketButton =
+    btnDefault' "btn-block"
+        { btnParam
+            | label = Just "Send message"
+        }
+        (Messages.SendWebSocketMessage "Some string")
+
 
 
 incrementButton : Html Message

@@ -12,7 +12,8 @@
     "react": "registry:dt/react#0.14.0+20160720060442",
     "react-dom": "registry:dt/react-dom#0.14.0+20160412154040",
     "socket.io": "registry:dt/socket.io#1.4.4+20160317120654",
-    "websocket": "registry:dt/websocket#0.0.0+20160720001629"
+    "websocket": "registry:dt/websocket#0.0.0+20160720001629",
+    "ws": "registry:dt/ws#0.0.0+20160724122153"
   },
   "dependencies": {
     "debug": "registry:npm/debug#2.0.0+20160511151334",

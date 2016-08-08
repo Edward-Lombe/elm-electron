@@ -30,6 +30,7 @@ type alias Settings =
 
 type alias Model =
     { saleNotes : List SaleNote
+    , saleNote : SaleNoteInput
     , clients : List Client
     , settings : Settings
     , currentPage : Page

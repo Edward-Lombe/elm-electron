@@ -1,12 +1,15 @@
 module Updates exposing (update)
 
 import Navigation exposing (newUrl)
+import Debug exposing (log)
+import WebSocket
 
 
 -- Local Imports
 
 import Models exposing (Model)
 import Messages exposing (Message(..))
+import TestWebSocket exposing (webSocketAddress)
 import ElmArchitecture.Button
 import ElmArchitecture.Clock
 
@@ -68,6 +71,12 @@ update msg model =
               }
             , cn
             )
+
+        WebSocketMessage str ->
+            ( log ("str is " ++ str) model, cn )
+
+        SendWebSocketMessage str ->
+            ( model , WebSocket.send webSocketAddress str )
 
         NoOp ->
             ( model, cn )
