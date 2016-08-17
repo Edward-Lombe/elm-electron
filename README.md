@@ -24,7 +24,6 @@ which uses nodemon to watch the source directory for changes.
 
 ## structure
 
-
 [//]: # (START_FILE_STRUCTURE)
 
 ```plaintext
@@ -73,7 +72,6 @@ which uses nodemon to watch the source directory for changes.
 ```
 
 [//]: # (END_FILE_STRUCTURE)
-
 
 Entry path is more or less as follows,
 

@@ -25,14 +25,12 @@ async function updateREADME() {
 
   const t = '```'
   const pre =
-`
-${START_MARKER}
+`${START_MARKER}
 
 ${t}plaintext
 ${SOURCE_TREE}${t}
 
-${END_MARKER}
-`
+${END_MARKER}`
 
   const newReadme = replaceBetween(START_MARKER, END_MARKER)(README_CONTENTS, pre)
 
