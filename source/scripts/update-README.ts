@@ -24,14 +24,15 @@ async function updateREADME() {
   const END_MARKER = commentMarker('END_FILE_STRUCTURE')
 
   const t = '```'
-  const pre = dedent`
-    ${START_MARKER}
+  const pre =
+`
+${START_MARKER}
 
-    ${t}plaintext
-    ${SOURCE_TREE}${t}
+${t}plaintext
+${SOURCE_TREE}${t}
 
-    ${END_MARKER}
-  `
+${END_MARKER}
+`
 
   const newReadme = replaceBetween(START_MARKER, END_MARKER)(README_CONTENTS, pre)
 

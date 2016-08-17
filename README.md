@@ -24,6 +24,7 @@ which uses nodemon to watch the source directory for changes.
 
 ## structure
 
+
 [//]: # (START_FILE_STRUCTURE)
 
 ```plaintext
@@ -64,14 +65,15 @@ which uses nodemon to watch the source directory for changes.
 │   ├── update-node_modules.ts
 │   └── utilities.ts
 └── server
-├── main.ts
-├── server.ts
-└── websocket.ts
+    ├── main.ts
+    ├── server.ts
+    └── websocket.ts
 
 7 directories, 32 files
 ```
 
 [//]: # (END_FILE_STRUCTURE)
+
 
 Entry path is more or less as follows,
 
