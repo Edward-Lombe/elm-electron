@@ -59,7 +59,7 @@ which uses nodemon to watch the source directory for changes.
 │   ├── electron.ts
 │   ├── elm-make.ts
 │   ├── maybe-format.ts
-│   ├── timestamp
+│   ├── timestamp.txt
 │   ├── update-README.ts
 │   ├── update-node_modules.ts
 │   └── utilities.ts

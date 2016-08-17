@@ -20,6 +20,7 @@
     "pouchdb-replication": "registry:dt/pouchdb-replication#5.4.4+20160724064500",
     "react": "registry:dt/react#0.14.0+20160720060442",
     "react-dom": "registry:dt/react-dom#0.14.0+20160412154040",
+    "semver": "registry:dt/semver#5.3.0+20160801120957",
     "socket.io": "registry:dt/socket.io#1.4.4+20160317120654",
     "websocket": "registry:dt/websocket#0.0.0+20160720001629",
     "ws": "registry:dt/ws#0.0.0+20160724122153"

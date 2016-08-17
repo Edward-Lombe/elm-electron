@@ -18,6 +18,7 @@
 /// <reference path="globals/pouchdb/index.d.ts" />
 /// <reference path="globals/react-dom/index.d.ts" />
 /// <reference path="globals/react/index.d.ts" />
+/// <reference path="globals/semver/index.d.ts" />
 /// <reference path="globals/socket.io/index.d.ts" />
 /// <reference path="globals/websocket/index.d.ts" />
 /// <reference path="globals/ws/index.d.ts" />

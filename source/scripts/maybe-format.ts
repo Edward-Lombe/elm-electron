@@ -41,7 +41,7 @@ function soFormatDefinitely() {
 function formatByTimestamp() {
 
   const FIVE_MINUTES = 1000 * 60 * 5
-  const timestampPath = jd('timestamp')
+  const timestampPath = jd('timestamp.txt')
   const now = new Date()
 
   if (fsep.existsSync(timestampPath)) {
