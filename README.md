@@ -7,7 +7,7 @@ I guess this is trying to be an example/showcase of some ways that you could
 implement/develop/maintain a project using Elm and the JavaScript eco-system
 within a more real world context. Going further than just a 'ToDo' app and
 showing how to do things like communicate with a server, structure a large
-codebase of UI and server/buisiness logic.
+code base of UI and server/business logic.
 
 It is very early days. Things are going to change a lot, because this is
 essentially my scratch pad for trying to learn Elm within a familiar context.
@@ -96,13 +96,13 @@ page to `localhost:3000`.
 - `source/server/server.ts`
 
 This file starts a local HTTP server, and renders a static react component that
-is the wrapper HTML to run the file produced by webpack.
+is the wrapper HTML to run the file produced by `webpack`.
 
 - `source/client/react-components/html.tsx`
 
 This file is simply some boilerplate for the index file that is served. We set
 the appropriate title and meta tags, load style sheets, declare a root element,
-and load the webpack bundle under `distribution/main.js`
+and load the `webpack` bundle under `distribution/main.js`
 
 - `source/client/main.ts`
 
@@ -127,7 +127,7 @@ We finally made it to our actual Elm code, it only took half a dozen files :)
 - Finish the source path
 - Set up [plop](https://github.com/amwmedia/plop) generators for adding a page,
   path, route, whatever, etc
-- Implement a sane extentable (real world) example of a SPA architexture using Elm
+- Implement a sane extensible (real world) example of a SPA architecture using Elm
 - Set up a websocket connection between the Elm page and the main electron process
 - Set up an example of ports being used through the `react-elm-components` library
 - Create documentation for the [TypeScript](http://typedoc.io) and
