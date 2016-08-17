@@ -12,6 +12,10 @@ import ElmArchitecture.Button
 import ElmArchitecture.Clock
 
 
+type alias PouchDB a =
+    { a | id : String, rev : String }
+
+
 type alias SaleNote =
     { saleNoteNumber : String
     , createdAt : Time.Time
@@ -28,6 +32,7 @@ type alias Model =
     , currentPage : Page
     , buttonModel : ElmArchitecture.Button.Model
     , clockModel : ElmArchitecture.Clock.Model
+    , designQuote : Maybe String
     }
 
 
@@ -45,6 +50,7 @@ model =
     , currentPage = Main
     , buttonModel = ElmArchitecture.Button.model
     , clockModel = 0
+    , designQuote = Nothing
     }
 
 

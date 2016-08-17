@@ -3,6 +3,10 @@ module Updates exposing (update)
 import Navigation exposing (newUrl)
 import Debug exposing (log)
 import WebSocket
+import Http
+import Json.Decode exposing (..)
+import Task exposing (..)
+import Regex
 
 
 -- Local Imports
@@ -76,10 +80,55 @@ update msg model =
             ( log ("str is " ++ str) model, cn )
 
         SendWebSocketMessage str ->
-            ( model , WebSocket.send webSocketAddress str )
+            ( model, WebSocket.send webSocketAddress str )
+
+        GetDesignQuote ->
+            ( model, getCommand )
+
+        SetDesignQuote quote ->
+            ( { model
+                | designQuote = Just quote
+              }
+            , cn
+            )
 
         NoOp ->
             ( model, cn )
+
+
+quoteURL : String
+quoteURL =
+    "http://quotesondesign.com/wp-json/posts?filter[orderby]=rand&filter[posts_per_page]=1"
+
+
+getCommand : Cmd Message
+getCommand =
+    Task.perform (always NoOp) SetDesignQuote (Http.get extractQuote quoteURL)
+
+
+extractQuote : Decoder String
+extractQuote =
+    tuple1 identity (object1 removeHTML ("content" := string))
+
+
+removeHTML : String -> String
+removeHTML =
+    Regex.replace Regex.All matchP (\_ -> "")
+
+
+matchP : Regex.Regex
+matchP =
+    Regex.regex ("(" ++ openP ++ "|" ++ closeP ++ ")")
+
+
+openP : String
+openP =
+    Regex.escape "<p>"
+
+
+closeP : String
+closeP =
+    Regex.escape "</p>"
 
 
 cn : Cmd a

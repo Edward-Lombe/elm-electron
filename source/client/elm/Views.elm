@@ -5,6 +5,7 @@ import Html.Attributes exposing (..)
 import Html.Events exposing (onInput, onClick)
 import Html.App exposing (map)
 import Bootstrap.Html exposing (..)
+import Maybe exposing (withDefault)
 
 
 -- Local Imports
@@ -27,6 +28,9 @@ view model =
                 , homeLink
                 , br'
                 , modelDisplay model
+                , br'
+                , getQuoteButton
+                , text (withDefault "" model.designQuote)
                 ]
 
         Pages.Main ->
@@ -129,6 +133,15 @@ addSaleNoteButton =
         Messages.SubmitSaleNote
 
 
+getQuoteButton : Html Message
+getQuoteButton =
+    btnDefault' "btn-block"
+        { btnParam
+            | label = Just "GET HTTP QUOTE"
+        }
+        Messages.GetDesignQuote
+
+
 webSocketButton : Html Message
 webSocketButton =
     btnDefault' "btn-block"
@@ -136,7 +149,6 @@ webSocketButton =
             | label = Just "Send message"
         }
         (Messages.SendWebSocketMessage "Some string")
-
 
 
 incrementButton : Html Message

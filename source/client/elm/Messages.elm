@@ -25,3 +25,5 @@ type Message
     | Clock ElmArchitecture.Clock.Msg
     | WebSocketMessage String
     | SendWebSocketMessage String
+    | GetDesignQuote
+    | SetDesignQuote String
